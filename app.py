@@ -11,6 +11,8 @@ import os
 from ai_utils import extract_entities, detect_language,TextAnalyzer
 from werkzeug.exceptions import BadRequest,UnsupportedMediaType
 from sqlalchemy.exc import IntegrityError
+from werkzeug.security import generate_password_hash, check_password_hash
+import json
 
 # Create a logs directory if it does not exist
 if not os.path.exists('logs'):
@@ -236,6 +238,7 @@ def internal_error(error):
     app.logger.error('Server Error: %s', (error))
     return jsonify({'error': 'An unexpected error occurred'}), 500
 
+
 # TextAnalysis db table
 class TextAnalysis(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -267,11 +270,17 @@ class EntityExtraction(db.Model):
     text = db.Column(db.Text, nullable=False)
     entities = db.Column(db.Text, nullable=True)
 
+    def set_entities(self, entities_list):
+        self.entities = json.dumps(entities_list)
+
+    def get_entities(self):
+        return json.loads(self.entities)
+
 # LanguageDetection db table
 class LanguageDetection(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.Text, nullable=False)
-    language = db.Column(db.String(20), nullable=False)
+    language = db.Column(db.String(20), nullable=True)
 
 if __name__ == '__main__':
     with app.app_context():
