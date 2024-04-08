@@ -29,6 +29,8 @@ This project is a Flask-based backend system designed to offer text analysis cap
 
 `pip install -r requirements.txt`
 
+`python -m spacy download en_core_web_sm`
+
 3. Create a .env file in the project root directory and add the following configurations:
 
 `FLASK_APP=app.py`
