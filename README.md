@@ -23,9 +23,9 @@ This project is a Flask-based backend system designed to offer text analysis cap
 
 `cd flask-backend`
 
-`virtualenv venv`
+`python3 -m venv env`
 
-`source venv/bin/activate`
+`source env/bin/activate`
 
 `pip install -r requirements.txt`
 
