@@ -17,7 +17,7 @@ This project is a Flask-based backend system designed to offer text analysis cap
 
 1. Clone the repository:
 
-`git clone https://github.com/andishmandsaadi/flask-bakend`
+`git clone https://github.com/andishmandsaadi/flask-backend`
 
 2. Navigate to the project directory and install dependencies:
 
