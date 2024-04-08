@@ -22,15 +22,21 @@ This project is a Flask-based backend system designed to offer text analysis cap
 2. Navigate to the project directory and install dependencies:
 
 `cd flask-backend`
+
 `virtualenv venv`
+
 `source venv/bin/activate`
+
 `pip install -r requirements.txt`
 
 3. Create a .env file in the project root directory and add the following configurations:
 
 `FLASK_APP=app.py`
+
 `FLASK_ENV=development`
+
 `SECRET_KEY=your_secret_key`
+
 `SQLALCHEMY_DATABASE_URI=mysql://username:password@localhost/dbname`
 
 Replace username, password, localhost, and dbname with your MySQL database details and your_secret_key with a secure secret key.
